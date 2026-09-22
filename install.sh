@@ -1,6 +1,6 @@
 #!/bin/bash
 # ============================================================
-#  Svm Vps V9 — Installer
+#  Evil Vps V1 — Installer
 #  Sets up LXD/LXC, Python deps, systemd service for bot.py
 # ============================================================
 
@@ -36,7 +36,7 @@ ascii_banner() {
     rainbow_line '| _ \ (_) || |   | |__ >  < (__  | _|| |) | |  | |  | | (_) | .` |'
     rainbow_line '|___/\___/ |_|   |____/_/\_\___| |___|___/___| |_| |___\___/|_|\_|'
     echo ""
-    rainbow_line '                    ~ Made by AnkitCoder ~'
+    rainbow_line '                    ~ Made by EvilSaad ~'
     echo ""
 }
 
@@ -46,7 +46,7 @@ banner() {
     echo -e "${WHT}  ─────────────────────────────────────────────────────────────${NC}"
     echo -e "  ${CYN}Fully Automated LXC/LXD VPS Discord Bot Installer${NC}"
     echo -e "  ${CYN}Ubuntu & Debian supported | Fast setup${NC}"
-    echo -e "  ${MAG}Made by AnkitCoder${NC}  |  ${BLU}github.com/AnkitKing7/Svm-v9bot${NC}"
+    echo -e "  ${MAG}Made by EvilSaad${NC}  |  ${BLU}github.com/AnkitKing7/Svm-v9bot${NC}"
     echo -e "${WHT}  ─────────────────────────────────────────────────────────────${NC}\n"
 }
 
