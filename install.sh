@@ -23,11 +23,11 @@ rainbow_line() {
 }
 
 ascii_banner() {
-    rainbow_line ' #####  #   #  #####  #       #####   ###    ###   ##### '
-    rainbow_line ' #      #   #  #      #      #     #  #  #  #  #  #     # '
-    rainbow_line ' ####   #   #  ####   #      #     #  #  #  #  #  #     # '
-    rainbow_line ' #       # #   #      #      #     #  #  #  #  #  #     # '
-    rainbow_line ' #####    #    #####  #####   #####   #  #  #  #   ##### '
+    rainbow_line ' #####  #   #  #      #       #####    ###     ###   ##### '
+    rainbow_line ' #      #   #  #      #      #       #   #   #   #  # '
+    rainbow_line ' ####   #   #  #      #      ###    #####   #####  #### '
+    rainbow_line ' #       # #   #      #          #   #   #   #   #  # '
+    rainbow_line ' #####    #    #      #####   ####    #   #   #   #  ##### '
     rainbow_line '##    ##   ## ##   ##     ##      ## ##   ##        ##    ##      ## ##   ##     ## '
     rainbow_line '    '
     echo ""
