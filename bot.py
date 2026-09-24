@@ -48,7 +48,7 @@ MAIN_ADMIN_ID = int(MAIN_ADMIN_IDS_ENV[0])  # kept for backward-compat display p
 VPS_USER_ROLE_ID = int(os.getenv('VPS_USER_ROLE_ID', '1210291131301101618'))
 DEFAULT_STORAGE_POOL = os.getenv('DEFAULT_STORAGE_POOL', 'default')
 BOT_VERSION = os.getenv('BOT_VERSION', '9.0-PRO')
-BOT_DEVELOPER = os.getenv('BOT_DEVELOPER', 'AnkitCoder')
+BOT_DEVELOPER = os.getenv('BOT_DEVELOPER', 'EVILSAAD')
 
 # OS Options for VPS Creation and Reinstall
 OS_OPTIONS = [
@@ -104,7 +104,7 @@ def init_db():
     cur.execute('SELECT COUNT(*) FROM nodes WHERE is_local = 1')
     if cur.fetchone()[0] == 0:
         cur.execute('INSERT INTO nodes (name, location, total_vps, tags, api_key, url, is_local) VALUES (?, ?, ?, ?, ?, ?, ?)',
-                    ('Local Node', 'Local', 100, '[]', None, None, 1))  # Default capacity 100
+                    (' Node', 'Local', 100, '[]', None, None, 1))  # Default capacity 100
     cur.execute('''CREATE TABLE IF NOT EXISTS vps (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         user_id TEXT NOT NULL,
