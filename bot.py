@@ -20,7 +20,7 @@ import re
 
 # Load environment variables
 DISCORD_TOKEN = os.getenv('DISCORD_TOKEN', '')
-BOT_NAME = os.getenv('BOT_NAME', 'EVIL-v1')
+BOT_NAME = os.getenv('EVIL_v1', 'EVIL-v1')
 PREFIX = os.getenv('PREFIX', '!')
 YOUR_SERVER_IP = os.getenv('YOUR_SERVER_IP', '127.0.0.1')
 
@@ -438,12 +438,12 @@ def truncate_text(text, max_length=1024):
 # Embed creation functions
 def create_embed(title, description="", color=0x1a1a1a):
     embed = discord.Embed(
-        title=truncate_text(f"🌟 {BOT_NAME} - {title}", 256),
+        title=truncate_text(f"🌟 {EVILV1} - {title}", 256),
         description=truncate_text(description, 4096),
         color=color
     )
     embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/1551851022459346995/1551854053431181342/file_0000000012e482089bbcb6baf6541790.png?ex=6ab37c36&is=6ab22ab6&hm=befd08e6f0d32dc78d13de9f687071e0baafc9fe46c449b9dea196dc5a2214d2&")
-    embed.set_footer(text=f"{BOT_NAME} VPS Manager v{BOT_VERSION} • {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}",
+    embed.set_footer(text=f"{EVIL-V1} VPS Manager v{BOT_VERSION} • {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}",
                      icon_url="https://cdn.discordapp.com/attachments/1551851022459346995/1551854054181707846/file_00000000d0208211a03e73df9a707fcb.png?ex=6ab37c36&is=6ab22ab6&hm=b1008fc48b2f4a57e89cdab46d804fcc53f53296e5a3f3401b94b5fff5ca0373&")
     return embed
 
@@ -1035,8 +1035,8 @@ DEFAULT_STORAGE_POOL = os.getenv('DEFAULT_STORAGE_POOL', get_default_storage_poo
 @bot.event
 async def on_ready():
     logger.info(f'{bot.user} has connected to Discord!')
-    await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name=f"{BOT_NAME} VPS Manager"))
-    logger.info(f"{BOT_NAME} Bot is ready!")
+    await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name=f"{EVIL-V1} VPS Manager"))
+    logger.info(f"{EVIL-V1} Bot is ready!")
 
 @bot.event
 async def on_command_error(ctx, error):
@@ -1059,7 +1059,7 @@ async def on_command_error(ctx, error):
 @bot.command(name='ping')
 async def ping(ctx):
     latency = round(bot.latency * 1000)
-    embed = create_success_embed("Pong!", f"{BOT_NAME} Bot latency: {latency}ms")
+    embed = create_success_embed("Pong!", f"{EVIL-V1} Bot latency: {latency}ms")
     await ctx.send(embed=embed)
 
 @bot.command(name='uptime')
@@ -1113,7 +1113,7 @@ async def my_vps(ctx):
     if not vps_list:
         embed = create_error_embed(
             "❌ No VPS Found",
-            f"You don’t have any **{BOT_NAME} VPS** yet."
+            f"You don’t have any **{EVIL-V1} VPS** yet."
         )
         embed.add_field(
             name="🚀 Quick Actions",
@@ -1202,7 +1202,7 @@ async def my_vps(ctx):
             inline=False
         )
 
-    embed.set_footer(text=f"{BOT_NAME} • VPS Control Panel")
+    embed.set_footer(text=f"{EVIL-V1} • VPS Control Panel")
     embed.timestamp = ctx.message.created_at
 
     await ctx.send(embed=embed)
@@ -1277,7 +1277,7 @@ class OSSelectView(discord.ui.View):
         if user_id not in vps_data:
             vps_data[user_id] = []
         vps_count = len(vps_data[user_id]) + 1
-        container_name = f"{BOT_NAME.lower()}-vps-{user_id}-{vps_count}"
+        container_name = f"{EVIL-V1.lower()}-vps-{user_id}-{vps_count}"
         ram_mb = self.ram * 1024
         try:
             await execute_lxc(container_name, f"init {os_version} {container_name} -s {DEFAULT_STORAGE_POOL}", node_id=self.node_id)
@@ -2552,7 +2552,7 @@ async def system_status(ctx):
     # Create main embed
     embed = create_embed(
         title="📊 System Status Dashboard",
-        description=f"**{BOT_NAME}** - Complete System Overview\n*Generated in {response_time:.0f}ms*",
+        description=f"**{EVIL-V1}** - Complete System Overview\n*Generated in {response_time:.0f}ms*",
         color=0x1a1a1a
     )
     
@@ -2628,7 +2628,7 @@ async def system_status(ctx):
     add_field(embed, "🏥 System Health", health_status, False)
     
     # Footer with current time
-    embed.set_footer(text=f"{BOT_NAME} System Status • Updated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}",
+    embed.set_footer(text=f"{EVIL-1} System Status • Updated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}",
                     icon_url="https://i.imgur.com/Tv3clt0.jpeg")
     
     await ctx.send(embed=embed)
@@ -2738,7 +2738,7 @@ async def add_admin_id(ctx, user_id: str):
     await ctx.send(embed=create_success_embed("Main Admin Added", f"`{user_id}` is now a main admin!"))
     try:
         user = await bot.fetch_user(int(user_id))
-        await user.send(embed=create_embed("🎉 Main Admin Access Granted", f"You are now a main admin of {BOT_NAME}, granted by {ctx.author.mention}", 0x00ff88))
+        await user.send(embed=create_embed("🎉 Main Admin Access Granted", f"You are now a main admin of {EVIL-V1}, granted by {ctx.author.mention}", 0x00ff88))
     except Exception:
         pass
 
@@ -3783,8 +3783,8 @@ async def about(ctx):
     total_vps = sum(len(vps_list) for vps_list in vps_data.values())
     latency = round(bot.latency * 1000)
     main_admin = await bot.fetch_user(MAIN_ADMIN_ID)
-    embed = create_info_embed(f"About {BOT_NAME}", f"Bot information and statistics")
-    add_field(embed, "Bot Name", BOT_NAME, True)
+    embed = create_info_embed(f"About {EVIL-V1}", f"Bot information and statistics")
+    add_field(embed, "Bot Name", EVIL-V1, True)
     add_field(embed, "Main Owner", main_admin.mention, True)
     add_field(embed, "Developer", BOT_DEVELOPER, True)
     add_field(embed, "Ping", f"{latency}ms", True)
@@ -3834,7 +3834,7 @@ async def quick_help(ctx):
             "• `!serverstats` - System overview\n"
             "• `!suspend-vps <container> <reason>` - Suspend VPS", False)
     
-    embed.set_footer(text=f"{BOT_NAME} VPS Manager • Use !help for complete command list")
+    embed.set_footer(text=f"{EVIL-V1} VPS Manager • Use !help for complete command list")
     await ctx.send(embed=embed)
 
 @bot.command(name='help-search')
@@ -3889,7 +3889,7 @@ async def help_search(ctx, *, search_term: str = None):
     if len(matches) > 15:
         add_field(embed, "Note", f"Showing 15 of {len(matches)} matches. Try a more specific search.", False)
     
-    embed.set_footer(text=f"{BOT_NAME} VPS Manager • Use !help for complete list")
+    embed.set_footer(text=f"{EVIL-V1} VPS Manager • Use !help for complete list")
     await ctx.send(embed=embed)    
 
 @bot.command(name='node')
@@ -4172,7 +4172,7 @@ async def node_cmd(ctx, sub: str, *args):
     else:
         # Show help for node command
         embed = create_info_embed("Node Management", 
-            f"Manage multi-node infrastructure for {BOT_NAME}")
+            f"Manage multi-node infrastructure for {EVIL-V1}")
 
 class HelpView(discord.ui.View):
     def __init__(self, ctx):
@@ -4374,7 +4374,7 @@ class HelpView(discord.ui.View):
         }
         color = colors.get(self.current_category, 0x1a1a1a)
        
-        title = f"📚 {BOT_NAME} Command Help - {category_data['name']}"
+        title = f"📚 {EVIL-V1} Command Help - {category_data['name']}"
         description = f"**{category_data['name']}**\nUse the dropdown below to switch categories."
        
         # Add helpful tips based on category
@@ -4399,17 +4399,17 @@ class HelpView(discord.ui.View):
        
         # Add appropriate footer based on category
         footers = {
-            "user": f"{BOT_NAME} VPS Manager • User Commands • Need help? Contact admin",
-            "vps": f"{BOT_NAME} VPS Manager • VPS Management • Snapshots • Cloning",
-            "ports": f"{BOT_NAME} VPS Manager • Port Forwarding • TCP/UDP Support",
-            "system": f"{BOT_NAME} VPS Manager • System Monitoring • Resource Management",
-            "nodes": f"{BOT_NAME} VPS Manager • Multi-Node Management • Distributed Infrastructure",
-            "bot": f"{BOT_NAME} VPS Manager • Bot Control • Status Management",
-            "admin": f"{BOT_NAME} VPS Manager • Admin Panel • Restricted Access",
-            "main_admin": f"{BOT_NAME} VPS Manager • Main Admin • Full System Control"
+            "user": f"{EVIL-V1} VPS Manager • User Commands • Need help? Contact admin",
+            "vps": f"{EVIL-V1} VPS Manager • VPS Management • Snapshots • Cloning",
+            "ports": f"{EVIL-V1} VPS Manager • Port Forwarding • TCP/UDP Support",
+            "system": f"{EVIL-V1} VPS Manager • System Monitoring • Resource Management",
+            "nodes": f"{EVIL-V1} VPS Manager • Multi-Node Management • Distributed Infrastructure",
+            "bot": f"{EVIL-V1} VPS Manager • Bot Control • Status Management",
+            "admin": f"{EVIL-V1} VPS Manager • Admin Panel • Restricted Access",
+            "main_admin": f"{EVIL-V1} VPS Manager • Main Admin • Full System Control"
         }
        
-        self.embed.set_footer(text=footers.get(self.current_category, f"{BOT_NAME} VPS Manager"))
+        self.embed.set_footer(text=footers.get(self.current_category, f"{EVIL-V1} VPS Manager"))
 
 
 @bot.command(name='help')
