@@ -46,7 +46,7 @@ banner() {
     echo -e "${WHT}  ─────────────────────────────────────────────────────────────${NC}"
     echo -e "  ${CYN}Fully Automated LXC/LXD VPS Discord Bot Installer${NC}"
     echo -e "  ${CYN}Ubuntu & Debian supported | Fast setup${NC}"
-    echo -e "  ${MAG}Made by EvilSaad${NC}  |  ${BLU}github.com/AnkitKing7/Svm-v9bot${NC}"
+    echo -e "  ${MAG}Made by EvilSaad${NC}  |  ${BLU}github.com/evilsaad0-hash/vps-deploy-bot-v1${NC}"
     echo -e "${WHT}  ─────────────────────────────────────────────────────────────${NC}\n"
 }
 
