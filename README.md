@@ -17,7 +17,7 @@ Fully automated Discord bot for managing LXC/LXD-based VPS containers — creati
 Clone the repo and run the installer as root:
 
 ```bash
-git clone https://github.com/evilsaad0-hash/vps-deploy-bot-v1.git
+git clone https://github.com/evilsaad0-hash/evm-3.git
 cd vps-deploy-bot-v1
 chmod +x install.sh
 sudo ./install.sh
